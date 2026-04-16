@@ -1,0 +1,81 @@
+import { Card } from "@/lib/srs/types";
+
+export const transientsCards: Card[] = [
+  {
+    id: "trans-001",
+    type: "formula",
+    topic: "RC Charging",
+    front: "Voltage across capacitor when charging from $0$ to $V_s$ through $R$.",
+    back: "$v_C(t) = V_s(1 - e^{-t/\\tau})$ where $\\tau = RC$",
+  },
+  {
+    id: "trans-002",
+    type: "formula",
+    topic: "RC Discharging",
+    front: "Voltage across capacitor discharging from $V_0$ through $R$.",
+    back: "$v_C(t) = V_0 e^{-t/\\tau}$",
+  },
+  {
+    id: "trans-003",
+    type: "formula",
+    topic: "RL Current Rise",
+    front: "Current through inductor rising from $0$ toward $V_s/R$.",
+    back: "$i_L(t) = \\frac{V_s}{R}(1 - e^{-t/\\tau})$ where $\\tau = L/R$",
+  },
+  {
+    id: "trans-004",
+    type: "formula",
+    topic: "RL Current Decay",
+    front: "Current through inductor decaying from $I_0$.",
+    back: "$i_L(t) = I_0 e^{-t/\\tau}$",
+  },
+  {
+    id: "trans-005",
+    type: "concept",
+    topic: "Initial Conditions",
+    front: "What quantities are continuous across a switching event?",
+    back: "Capacitor voltage $v_C$ and inductor current $i_L$ cannot change instantaneously.",
+  },
+  {
+    id: "trans-006",
+    type: "concept",
+    topic: "Steady State",
+    front: "Behavior of $L$ and $C$ in DC steady state.",
+    back: "Capacitor: open circuit (no current). Inductor: short circuit (no voltage drop).",
+  },
+  {
+    id: "trans-007",
+    type: "formula",
+    topic: "General First-Order",
+    front: "General solution for any first-order RC or RL transient.",
+    back: "$x(t) = x(\\infty) + [x(0^+) - x(\\infty)] e^{-t/\\tau}$",
+  },
+  {
+    id: "trans-008",
+    type: "concept",
+    topic: "Time Constant",
+    front: "After how many time constants is a first-order transient essentially complete?",
+    back: "$\\approx 5\\tau$ (response is within 1% of final value).",
+  },
+  {
+    id: "trans-009",
+    type: "formula",
+    topic: "RLC Natural Frequency",
+    front: "Undamped natural frequency of a series RLC circuit.",
+    back: "$\\omega_0 = \\frac{1}{\\sqrt{LC}}$",
+  },
+  {
+    id: "trans-010",
+    type: "formula",
+    topic: "RLC Damping",
+    front: "Damping coefficient $\\alpha$ for series RLC.",
+    back: "$\\alpha = \\frac{R}{2L}$",
+  },
+  {
+    id: "trans-011",
+    type: "concept",
+    topic: "RLC Response Types",
+    front: "Three possible response types of an RLC circuit.",
+    back: "Overdamped ($\\alpha > \\omega_0$), critically damped ($\\alpha = \\omega_0$), underdamped ($\\alpha < \\omega_0$).",
+  },
+];

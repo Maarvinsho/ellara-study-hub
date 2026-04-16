@@ -1,0 +1,81 @@
+import { Card } from "@/lib/srs/types";
+
+export const phasorCards: Card[] = [
+  {
+    id: "phas-001",
+    type: "concept",
+    topic: "Phasor",
+    front: "What is a phasor?",
+    back: "A complex number representing the amplitude and phase of a sinusoid. $v(t) = V_m\\cos(\\omega t + \\phi) \\leftrightarrow \\mathbf{V} = V_m \\angle \\phi$",
+  },
+  {
+    id: "phas-002",
+    type: "formula",
+    topic: "Resistor Impedance",
+    front: "Impedance of a resistor.",
+    back: "$Z_R = R$",
+  },
+  {
+    id: "phas-003",
+    type: "formula",
+    topic: "Inductor Impedance",
+    front: "Impedance of an inductor at angular frequency $\\omega$.",
+    back: "$Z_L = j\\omega L$",
+  },
+  {
+    id: "phas-004",
+    type: "formula",
+    topic: "Capacitor Impedance",
+    front: "Impedance of a capacitor at angular frequency $\\omega$.",
+    back: "$Z_C = \\frac{1}{j\\omega C} = -\\frac{j}{\\omega C}$",
+  },
+  {
+    id: "phas-005",
+    type: "concept",
+    topic: "Phase Relations",
+    front: "Phase relationships between voltage and current for R, L, C.",
+    back: "R: in phase. L: voltage leads current by $90°$. C: current leads voltage by $90°$. Mnemonic: ELI the ICE man.",
+  },
+  {
+    id: "phas-006",
+    type: "formula",
+    topic: "RMS to Peak",
+    front: "Relationship between RMS and peak voltage for a sinusoid.",
+    back: "$V_{rms} = \\frac{V_m}{\\sqrt{2}}$",
+  },
+  {
+    id: "phas-007",
+    type: "formula",
+    topic: "Average Power",
+    front: "Average (real) power in an AC circuit.",
+    back: "$P = V_{rms} I_{rms} \\cos\\phi$ where $\\phi$ is the phase angle between $V$ and $I$.",
+  },
+  {
+    id: "phas-008",
+    type: "concept",
+    topic: "Power Factor",
+    front: "Definition of power factor.",
+    back: "$\\text{PF} = \\cos\\phi$, the ratio of real power to apparent power.",
+  },
+  {
+    id: "phas-009",
+    type: "formula",
+    topic: "Apparent Power",
+    front: "Apparent power $S$.",
+    back: "$S = V_{rms} I_{rms}$, measured in VA (volt-amperes).",
+  },
+  {
+    id: "phas-010",
+    type: "formula",
+    topic: "Reactive Power",
+    front: "Reactive power $Q$.",
+    back: "$Q = V_{rms} I_{rms} \\sin\\phi$, measured in VAR (volt-amperes reactive).",
+  },
+  {
+    id: "phas-011",
+    type: "formula",
+    topic: "Complex Power",
+    front: "Complex power $\\mathbf{S}$ in terms of phasors.",
+    back: "$\\mathbf{S} = \\mathbf{V} \\mathbf{I}^* = P + jQ$",
+  },
+];
