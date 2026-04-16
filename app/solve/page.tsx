@@ -1,31 +1,34 @@
 "use client";
 
+import { useState } from "react";
 import { useCircuitEditor } from "@/lib/solver/useCircuitEditor";
 import ElementRow from "@/lib/components/ElementRow";
 import SolutionDisplay from "@/lib/components/SolutionDisplay";
+import ExplanationDisplay from "@/lib/components/ExplanationDisplay";
 import {
   voltageDivider,
   parallelResistors,
   balancedBridge,
 } from "@/lib/solver/examples";
 
+type Tab = "solution" | "working";
+
 export default function SolvePage() {
   const editor = useCircuitEditor();
+  const [tab, setTab] = useState<Tab>("solution");
 
   return (
     <main className="min-h-screen p-8 max-w-6xl mx-auto">
       <header className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Solve</h1>
         <p className="text-gray-600 text-sm">
-          Build a DC circuit by adding elements and choosing which nodes each connects
-          to. Node 0 is ground. Solution updates in real time using Modified Nodal
-          Analysis.
+          Build a DC circuit. The solver uses Modified Nodal Analysis — toggle to
+          &ldquo;Working&rdquo; to see how the matrix is assembled step by step.
         </p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="lg:col-span-2 space-y-6">
-          {/* Node controls */}
           <div className="bg-white border rounded-lg p-5">
             <div className="flex items-center justify-between mb-2">
               <h2 className="font-semibold">Nodes</h2>
@@ -50,7 +53,6 @@ export default function SolvePage() {
             </p>
           </div>
 
-          {/* Elements */}
           <div className="bg-white border rounded-lg p-5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-semibold">Elements</h2>
@@ -95,7 +97,6 @@ export default function SolvePage() {
             )}
           </div>
 
-          {/* Presets */}
           <div className="bg-gray-50 border rounded-lg p-5">
             <h2 className="font-semibold mb-3">Load preset</h2>
             <div className="flex flex-wrap gap-2">
@@ -127,11 +128,36 @@ export default function SolvePage() {
           </div>
         </section>
 
-        {/* Solution panel */}
         <aside className="lg:col-span-1">
           <div className="bg-white border rounded-lg p-5 sticky top-4">
-            <h2 className="font-semibold mb-4">Solution</h2>
-            <SolutionDisplay circuit={editor.circuit} />
+            <div className="flex gap-1 mb-4 border rounded p-1 bg-gray-50">
+              <button
+                onClick={() => setTab("solution")}
+                className={`flex-1 text-sm py-1 rounded ${
+                  tab === "solution"
+                    ? "bg-white shadow-sm font-semibold"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Solution
+              </button>
+              <button
+                onClick={() => setTab("working")}
+                className={`flex-1 text-sm py-1 rounded ${
+                  tab === "working"
+                    ? "bg-white shadow-sm font-semibold"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Working
+              </button>
+            </div>
+
+            {tab === "solution" ? (
+              <SolutionDisplay circuit={editor.circuit} />
+            ) : (
+              <ExplanationDisplay circuit={editor.circuit} />
+            )}
           </div>
         </aside>
       </div>
