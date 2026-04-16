@@ -40,3 +40,53 @@ export interface SolutionResult {
 export interface SolverError {
   error: string;
 }
+// --- AC extensions ---
+
+// A complex number represented as { re, im }
+export interface Complex {
+  re: number;
+  im: number;
+}
+
+export interface Inductor extends ElementBase {
+  type: "inductor";
+  inductance: number; // henries
+}
+
+export interface Capacitor extends ElementBase {
+  type: "capacitor";
+  capacitance: number; // farads
+}
+
+export interface ACVoltageSource extends ElementBase {
+  type: "acVoltageSource";
+  magnitude: number; // peak volts
+  phase: number;     // degrees
+}
+
+export interface ACCurrentSource extends ElementBase {
+  type: "acCurrentSource";
+  magnitude: number; // peak amps
+  phase: number;     // degrees
+}
+
+export type ACElement =
+  | Resistor
+  | Inductor
+  | Capacitor
+  | ACVoltageSource
+  | ACCurrentSource;
+
+export interface ACCircuit {
+  numNodes: number;
+  frequency: number; // Hz
+  elements: ACElement[];
+}
+
+export interface ACSolutionResult {
+  frequency: number;
+  omega: number;
+  nodeVoltages: Complex[]; // Phasor voltages (node 0 = 0)
+  elementCurrents: Record<string, Complex>;
+  elementVoltages: Record<string, Complex>;
+}
