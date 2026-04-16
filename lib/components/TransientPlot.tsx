@@ -56,7 +56,7 @@ export default function TransientPlot({
           />
           <YAxis label={{ value: yLabel, angle: -90, position: "insideLeft" }} />
           <Tooltip
-            formatter={(v: number) => v.toExponential(3)}
+            formatter={(v) => (typeof v === "number" ? v.toExponential(3) : v)}
             labelFormatter={(v) => `t = ${Number(v).toExponential(3)} s`}
           />
           <Legend verticalAlign="top" height={30} />

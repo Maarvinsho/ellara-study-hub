@@ -18,7 +18,7 @@ export default function SimulatePage() {
       href: "/simulate/rlc",
       title: "RLC Circuit",
       description: "Second-order response: overdamped, critically damped, underdamped",
-      status: "coming",
+      status: "ready",
     },
   ];
 
