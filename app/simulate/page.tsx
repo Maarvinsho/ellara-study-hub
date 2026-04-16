@@ -12,7 +12,7 @@ export default function SimulatePage() {
       href: "/simulate/rl",
       title: "RL Circuit",
       description: "First-order current rise and decay through an inductor",
-      status: "coming",
+      status: "ready",
     },
     {
       href: "/simulate/rlc",
